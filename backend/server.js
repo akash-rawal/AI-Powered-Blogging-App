@@ -8,6 +8,7 @@ const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 app.use('/uploads', express.static('uploads'));
+const blogPostRoutes = require("./routes/blogPostRoutes");
 
 
 // Middleware to handle CORS
@@ -30,6 +31,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", blogPostRoutes);
 
 
 
