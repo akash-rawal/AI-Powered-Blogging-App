@@ -8,6 +8,7 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const blogPostRoutes = require("./routes/blogPostRoutes");
 const commentsRoutes = require("./routes/commentsRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const app = express();
 app.use('/uploads', express.static('uploads'));
@@ -36,6 +37,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", blogPostRoutes);
 app.use("/api/comments", commentsRoutes);
+app.use("/api/dashboard-summary", dashboardRoutes);
 
 
 
