@@ -1,10 +1,12 @@
 import React from 'react'
 
+import DashboardLayout from '../../components/Layouts/DashboardLayout'
+
 const AdminLogin = () => {
   return (
-    <div>
-      Adminlogin 
-    </div>
+    <DashboardLayout>
+      admin login
+    </DashboardLayout>
   )
 }
 

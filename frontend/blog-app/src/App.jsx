@@ -11,9 +11,11 @@ import BlogPosts from './Pages/Admin/BlogPosts'
 import BlogPostEditor from './Pages/Admin/BlogPostEditor'
 import Comments from './Pages/Admin/Comments'
 import  Toaster from "react-hot-toast"
+import UserProvider from './Context/userContext'
 
 const App = () => {
   return (
+    <UserProvider>
     <div>
       
       <BrowserRouter>
@@ -44,6 +46,7 @@ const App = () => {
         />
 
     </div>
+    </UserProvider>
   )
 }
 
