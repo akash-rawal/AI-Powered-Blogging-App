@@ -30,7 +30,7 @@ const Login = ({ setCurrentPage }) => {
 
    setError("");
 
-   //Login API Call
+
    try {
       const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
        email,
@@ -43,7 +43,7 @@ const Login = ({ setCurrentPage }) => {
        localStorage.setItem("token", token);
        updateUser(response.data);
 
-       //Redirect based on role
+      
        if (role === "admin") {
          setOpenAuthForm(false);
          navigate("/admin/dashboard");
@@ -92,7 +92,7 @@ const Login = ({ setCurrentPage }) => {
           <p className="text-xs">
             Don't have an account?{" "}
             <button
-              className=""
+              className="font-medium text-primary underline cursor-pointer"
               onClick={() => {
                 setCurrentPage("signup");
               }}
