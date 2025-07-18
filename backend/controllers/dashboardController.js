@@ -32,7 +32,7 @@ const getDashboardSummary = async (req, res) => {
 
     const tagUsage = await BlogPost.aggregate([
         {$unwind : "$tags"},
-        {$group : {_id : "stags",count:{$sum: 1}}},
+        {$group : {_id : "$tags",count:{$sum: 1}}},
         {$project : {tag: "$_id",count : 1,_id:0}},
     ]);
 
