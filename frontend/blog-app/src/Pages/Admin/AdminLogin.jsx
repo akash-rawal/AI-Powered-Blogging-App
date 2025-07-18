@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DashboardLayout from "../../components/layouts/DashboardLayout";
+import DashboardLayout from "../../components/layout/DashboardLayout";
 
 import LOGO from "../../assets/6534601.jpg";
 import Login from "../../components/Auth/Login";

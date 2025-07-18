@@ -11,7 +11,7 @@ import BlogPosts from './Pages/Admin/BlogPosts'
 import BlogPostEditor from './Pages/Admin/BlogPostEditor'
 import Comments from './Pages/Admin/Comments'
 import  Toaster from "react-hot-toast"
-import UserProvider from './Context/userContext'
+import UserProvider from './context/userContext'
 
 const App = () => {
   return (
@@ -26,7 +26,7 @@ const App = () => {
         <Route path='/search'  element={<SearchPost/>}/>
 
         <Route element={<PrivateRoutes  allowedRoles={["admin"]}/>}>
-        <Route path='/admin/dashbord' element={<Dashboard/>} />
+        <Route path='/admin/dashboard' element={<Dashboard/>} />
         <Route path='/admin/posts' element={<BlogPosts/>} />
         <Route path='/admin/create' element={<BlogPostEditor/>} />
         <Route path='/admin/edit/:postSlug' element={<BlogPostEditor isEdit={true}/>} />

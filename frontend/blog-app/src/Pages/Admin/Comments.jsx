@@ -1,10 +1,12 @@
 import React from 'react'
+import DashboardLayout from '../../components/layout/DashboardLayout'
 
 const Comments = () => {
   return (
     <div>
-      Comments
+      comments
     </div>
+
   )
 }
 
