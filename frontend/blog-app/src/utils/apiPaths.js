@@ -29,16 +29,16 @@ export const API_PATHS = {
     GET_BY_SLUG: (slug) => `/api/posts/slug/${slug}`, 
     UPDATE: (id) => `/api/posts/${id}`, 
     DELETE: (id) => `/api/posts/${id}`, 
-    GET_BY_TAG: (tag) => `/api/posts/tag/${tag}`, // Get posts by a specific tag
-    SEARCH: "/api/posts/search", // Search posts by title or content
-    INCREMENT_VIEW: (id) => `/api/posts/${id}/view`, // Increment view count
+    GET_BY_TAG: (tag) => `/api/posts/tag/${tag}`, 
+    SEARCH: "/api/posts/search", 
+    INCREMENT_VIEW: (id) => `/api/posts/${id}/view`, 
     LIKE: (id) => `/api/posts/${id}/like`, 
   },
 
   COMMENTS: {
-    ADD: (postId) => `/api/comments/${postId}`, // Add a comment to a post
-    GET_ALL: "/api/comments", // Get all comments
-    GET_ALL_BY_POST: (postId) => `/api/comments/${postId}`, // Get all comments for a post
-    DELETE: (commentId) => `/api/comments/${commentId}`, // Delete a comment
+    ADD: (postId) => `/api/comments/${postId}`, 
+    GET_ALL: "/api/comments", 
+    GET_ALL_BY_POST: (postId) => `/api/comments/${postId}`, 
+    DELETE: (commentId) => `/api/comments/${commentId}`, 
   },
 };

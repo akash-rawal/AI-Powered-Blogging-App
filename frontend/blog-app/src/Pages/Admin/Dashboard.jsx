@@ -44,7 +44,7 @@ const Dashboard = () => {
 
     return () => {};
   }, []);
-  console.log(dashboardData);
+ 
 
   return (
     <DashboardLayout activeMenu="Dashboard">

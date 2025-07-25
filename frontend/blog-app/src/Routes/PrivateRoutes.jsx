@@ -5,7 +5,7 @@ const PrivateRoutes = ({allowedRoles}) => {
   const { user, loading } = useContext(UserContext);
 
  if (loading) {
-   return <div>Loading...</div>; // Show a loading indicator
+   return <div>Loading...</div>; 
  }
 
  if (!user) {

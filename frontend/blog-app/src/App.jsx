@@ -10,7 +10,7 @@ import Dashboard from './Pages/Admin/Dashboard'
 import BlogPosts from './Pages/Admin/BlogPosts'
 import BlogPostEditor from './Pages/Admin/BlogPostEditor'
 import Comments from './Pages/Admin/Comments'
-import  Toaster from "react-hot-toast"
+import  {Toaster} from "react-hot-toast"
 import UserProvider from './context/userContext'
 
 const App = () => {
@@ -19,6 +19,14 @@ const App = () => {
     <div>
       
       <BrowserRouter>
+       <Toaster
+          toastOptions={{
+            className: "",
+            style: {
+              fontSize: "13px",
+            },
+          }}
+        />
       <Routes>
         <Route path='/'  element={<BlogLandingPage/>}/>
         <Route path='/:slug'  element={<BlogPostView/>}/>
@@ -36,14 +44,7 @@ const App = () => {
         <Route path='/admin-login'  element={<AdminLogin/>}/>
       </Routes>
       </BrowserRouter>
-      <Toaster
-          toastOptions={{
-            className: "",
-            style: {
-              fontSize: "13px",
-            },
-          }}
-        />
+     
 
     </div>
     </UserProvider>

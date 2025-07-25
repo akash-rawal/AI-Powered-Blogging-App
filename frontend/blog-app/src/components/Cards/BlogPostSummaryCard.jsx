@@ -31,11 +31,11 @@ const BlogPostSummaryCard = ({
          <div className="h-6 w-[1px] bg-gray-300/70" />
 
          <div className="flex items-center gap-2">
-           <span className="flex items-center gap-1.5 text-xs text-sky-700 font-medium bgsky50 px-2.5 py-1 rounded">
+           <span className="flex items-center gap-1.5 text-xs text-sky-700 font-medium bg-sky-50 px-2.5 py-1 rounded">
              <LuEye className="text-[16px] text-sky-500" /> {views}
            </span>
 
-           <span className="flex items-center gap-1.5 text-xs text-sky-700 font-medium bgsky50 px-2.5 py-1 rounded">
+           <span className="flex items-center gap-1.5 text-xs text-sky-700 font-medium bg-sky-50 px-2.5 py-1 rounded">
              <LuHeart className="text-[16px] text-sky-500" /> {likes}
            </span>
          </div>

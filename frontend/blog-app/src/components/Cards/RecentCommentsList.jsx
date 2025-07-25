@@ -3,7 +3,7 @@ import moment from 'moment';
 import { LuDot } from 'react-icons/lu';
 
 const RecentCommentsList = ({ comments }) => {
-     console.log("COMMENTS:", comments);
+     
   return (
     <div className="mt-4">
       <ul className="space-y-4">
