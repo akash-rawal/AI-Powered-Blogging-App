@@ -8,6 +8,7 @@ import AUTH_IMG from "../../assets/react.svg";
 import Input from "../Inputs/Input";
 import { validateEmail } from "../../utils/helper";
 import ProfilePhotoSelector from "../Inputs/ProfilePhotoSelector";
+import uploadImage from "../../utils/uploadImage";
 
 const SignUp = ({ setCurrentPage }) => {
   const [profilePic, setProfilePic] = useState(null);
@@ -42,6 +43,10 @@ const SignUp = ({ setCurrentPage }) => {
 
     setError("");
     try {
+      if(profilePic){
+        const imgUploadRes = await uploadImage(profilePic);
+        profileImageURL = imgUploadRes.imageUrl || "";
+      }
       const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
         name: fullName,
         email,
@@ -110,7 +115,7 @@ const SignUp = ({ setCurrentPage }) => {
                 value={adminAccessToken}
                 onChange={({ target }) => setAdminAccessToken(target.value)}
                 label="Admin Invite Token"
-                placeholder="6 Digit Code"
+                placeholder="Enter Admin Code "
                 type="number"
               />
             </div>

@@ -55,7 +55,7 @@ const ProfilePhotoSelector = ({ image, setImage,preview,setPreview }) => {
             <div className="relative">
                 <img 
                 src={preview || previewUrl}
-                alt="profilr photo"
+                alt="profile photo"
                 className="w-20 h-20 rounded-full object-cover" />
                 <button
                 type="button"

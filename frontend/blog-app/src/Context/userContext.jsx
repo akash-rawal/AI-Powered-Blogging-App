@@ -10,6 +10,8 @@ const UserProvider = ({children})=>{
     const [user,setUser] = useState(null);
     const [loading,setLoading] = useState(true);
     const [openAuthForm,setOpenAuthForm] = useState(false);
+    //const [searchResults, setSearchResults] = useState([]);
+
 
     useEffect(()=>{
         if(user) return;
@@ -39,7 +41,7 @@ const UserProvider = ({children})=>{
 
     const clearUser = ()=>{
         setUser(null);
-        setSearchReasults([])
+        //setSearchResults([]);
         localStorage.removeItem("token");
             
     };
@@ -53,6 +55,7 @@ const UserProvider = ({children})=>{
         clearUser,
         openAuthForm,
         setOpenAuthForm,
+        
 
     }}>
         {children}
