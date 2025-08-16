@@ -5,6 +5,8 @@ const addComment = async (req, res) => {
   try {
     const { postId } = req.params;
     const { content, parentComment } = req.body;
+    
+
 
     const post = await BlogPost.findById(postId);
     if (!post) {

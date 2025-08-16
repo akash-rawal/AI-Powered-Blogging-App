@@ -151,10 +151,10 @@ const searchPosts = async (req, res) => {
       isDraft: false,
       $or: [
         {
-          title: { $regex: q, $option: "i" },
+          title: { $regex: q, $options: "i" }, 
         },
         {
-          content: { $regex: q, $option: "i" },
+          content: { $regex: q, $options: "i" }, 
         },
       ],
     }).populate("author", "name profileImageUrl");
@@ -162,7 +162,7 @@ const searchPosts = async (req, res) => {
   } catch (err) {
     res
       .status(500)
-      .json({ message: "Failed to seacrch post", error: err.message });
+      .json({ message: "Failed to search post", error: err.message });
   }
 };
 
