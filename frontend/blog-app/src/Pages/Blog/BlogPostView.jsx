@@ -7,7 +7,7 @@ import { LuCircleAlert, LuDot, LuSparkles } from "react-icons/lu";
 // import { UserContext } from "../../context/userProvider";
 import CommentReplyInput from "../../components/Inputs/CommentReplyInput";
 import toast from "react-hot-toast";
-import TrendingPostsSection from "./components/TrendingPostsSection";
+import TrendingPostsSection from "./Components/TrendingPostsSection";
 
 import SkeletonLoader from "../../components/Loaders/SkeletonLoader";
 import { useNavigate, useParams } from "react-router-dom";

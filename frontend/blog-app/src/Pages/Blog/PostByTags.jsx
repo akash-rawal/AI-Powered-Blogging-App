@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
-import BlogPostSummaryCard from "./components/BlogPostSummaryCard";
+import BlogPostSummaryCard from "./Components/BlogPostSummaryCard";
 import moment from "moment";
-import TrendingPostsSection from "./components/TrendingPostsSection";
+import TrendingPostsSection from "./Components/TrendingPostsSection";
 import BlogLayout from "../../components/layout/BlogLayout/BlogLayout";
 
 const PostByTags = () => {
