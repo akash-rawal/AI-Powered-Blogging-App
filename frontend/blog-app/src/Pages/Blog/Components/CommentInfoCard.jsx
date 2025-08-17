@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import moment from "moment";
 import { LuChevronDown, LuDot, LuReply, LuTrash2 } from "react-icons/lu";
 import toast from "react-hot-toast";
-import { UserContext } from "../../../context/userContext";
+import { UserContext } from "../../../context/UserContext";
 import CommentReplyInput from "../../../components/Inputs/CommentReplyInput";
 import { API_PATHS } from "../../../utils/apiPaths";
 import axiosInstance from "../../../utils/axiosInstance";

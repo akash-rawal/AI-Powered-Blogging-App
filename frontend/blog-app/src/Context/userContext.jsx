@@ -1,4 +1,4 @@
-import {createContext,useState,useEffect} from 'react'
+import React, {createContext,useState,useEffect} from "react";
 import axiosInstance from "../utils/axiosInstance";
 import { API_PATHS  } from "../utils/apiPaths";
 
@@ -26,6 +26,7 @@ const UserProvider = ({children})=>{
                setUser(response.data); 
             } catch (error) {
                 console.error("user not authenticated",error);
+                clearUser();
             } finally{
                 setLoading(false);
             }

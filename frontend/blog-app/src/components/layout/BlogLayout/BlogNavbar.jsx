@@ -5,7 +5,7 @@ import { LuSearch } from "react-icons/lu";
 import { BLOG_NAVBAR_DATA } from "../../../utils/data";
 import LOGO from "../../../assets/6534601.jpg";
 import SideMenu from "../SideMenu";
-import  {UserContext } from "../../../context/userContext";
+import  {UserContext } from "../../../context/UserContext";
 import ProfileInfoCard from "../../Cards/ProfileInfoCard";
 import Login from "../../Auth/Login";
 import SignUp from "../../Auth/SignUp";

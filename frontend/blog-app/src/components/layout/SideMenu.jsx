@@ -4,7 +4,7 @@ import { BLOG_NAVBAR_DATA, SIDE_MENU_DATA } from "../../utils/data";
 import { LuLogOut } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import CharAvatar from "../Cards/CharAvatar";
-import { UserContext } from "../../context/userContext";
+import { UserContext } from "../../context/UserContext";
 
 const SideMenu = ({ activeMenu, isBlogMenu ,setOpenSideMenu}) => {
   const{user ,setUser}  = useContext(UserContext);

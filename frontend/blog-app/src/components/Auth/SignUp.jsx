@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
-import { UserContext } from "../../context/userContext";
+import { UserContext } from "../../context/UserContext";
 
 import AUTH_IMG from "../../assets/react.svg";
 import Input from "../Inputs/Input";
@@ -16,7 +16,7 @@ const SignUp = ({ setCurrentPage }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [adminAccessToken, setAdminAccessToken] = useState("");
-  const [uploadedImageURL, setUploadedImageURL] = useState(null);
+  
 
 
   const [error, setError] = useState(null);
@@ -47,10 +47,10 @@ const SignUp = ({ setCurrentPage }) => {
     try {
       if(profilePic){
         const imgUploadRes = await uploadImage(profilePic);
-        const url = imgUploadRes.imageUrl || "";
-        setUploadedImageURL(url); 
+        profileImageURL = imgUploadRes.imageUrl || "";
+        
       }
-      console.log("profile file:", profilePic);
+      
       const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
         name: fullName,
         email,
@@ -92,7 +92,8 @@ const SignUp = ({ setCurrentPage }) => {
           </p>
 
           <form onSubmit={handleSignUp}>
-            <ProfilePhotoSelector image={uploadedImageURL || profilePic} setImage={setProfilePic} />
+            <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
+
 
             <div className="grid grid-cols-1  md:grid-cols-2 gap-5">
               <Input
