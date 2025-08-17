@@ -3,7 +3,7 @@ import BlogLayout from '../../components/layout/BlogLayout/BlogLayout';
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import BlogPostSummaryCard from "./components/BlogPostSummaryCard";
+import BlogPostSummaryCard from "./Components/BlogPostSummaryCard";
 import moment from "moment";
 
 const SearchPosts = () => {
