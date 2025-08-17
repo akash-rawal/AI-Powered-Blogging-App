@@ -3,7 +3,7 @@ import DashboardLayout from "../../components/layout/DashboardLayout";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
-import { UserContext } from "../../context/UserContext";
+// import { UserContext } from "../../context/userProvider";
 import moment from "moment";
 import {
   LuChartLine,
@@ -15,6 +15,7 @@ import DashboardSummaryCard from "../../components/Cards/DashboardSummaryCard";
 import TagInsights from "../../components/Cards/TagInsights";
 import TopPostCard from "../../components/Cards/TopPostCard";
 import RecentCommentsList from "../../components/Cards/RecentCommentsList";
+import { UserContext } from "../../context/UserContext";
 
 const Dashboard = () => {
   const { user } = useContext(UserContext);

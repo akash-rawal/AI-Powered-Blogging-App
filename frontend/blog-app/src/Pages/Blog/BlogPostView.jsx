@@ -4,10 +4,11 @@ import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import moment from "moment";
 import { LuCircleAlert, LuDot, LuSparkles } from "react-icons/lu";
-import { UserContext } from "../../context/UserContext";
+// import { UserContext } from "../../context/userProvider";
 import CommentReplyInput from "../../components/Inputs/CommentReplyInput";
 import toast from "react-hot-toast";
 import TrendingPostsSection from "./components/TrendingPostsSection";
+
 import SkeletonLoader from "../../components/Loaders/SkeletonLoader";
 import { useNavigate, useParams } from "react-router-dom";
 import MarkdownContent from "./Components/MarkdownContent";
@@ -16,6 +17,7 @@ import { sanitizeMarkdown } from "../../utils/helper";
 import CommentInfoCard from "./Components/CommentInfoCard";
 import Drawer from "../../components/Drawer";
 import LikeCommentButton from "./Components/LikeCommentButton";
+import { UserContext } from "../../context/UserContext";
 
 const BlogPostView = () => {
   const { slug } = useParams();

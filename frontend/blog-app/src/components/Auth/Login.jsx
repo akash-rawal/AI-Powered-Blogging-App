@@ -2,11 +2,12 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
-import { UserContext } from "../../context/UserContext";
+// import { UserContext } from "../../context/userProvider";
 
 import AUTH_IMG from "../../assets/react.svg";
 import Input from "../Inputs/Input";
 import { validateEmail } from "../../utils/helper";
+import { UserContext } from "../../context/UserContext";
 
 const Login = ({ setCurrentPage }) => {
   const [email, setEmail] = useState("");

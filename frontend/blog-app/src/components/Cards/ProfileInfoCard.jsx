@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
+// import { UserContext } from "../../context/userProvider";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const ProfileInfoCard = () => {
   const { user, clearUser } = useContext(UserContext);

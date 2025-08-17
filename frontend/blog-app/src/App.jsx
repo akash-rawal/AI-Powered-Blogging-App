@@ -11,7 +11,8 @@ import BlogPosts from './Pages/Admin/BlogPosts'
 import BlogPostEditor from './Pages/Admin/BlogPostEditor'
 import Comments from './Pages/Admin/Comments'
 import  {Toaster} from "react-hot-toast"
-import UserProvider from './context/UserContext'
+import UserProvider from './context/userProvider'
+// import UserProvider from './context/userProvider.jsx'
 // import UserProvider,{ UserContext }  from "./context/UserContext"
 
 const App = () => {

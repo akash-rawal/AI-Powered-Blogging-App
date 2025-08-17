@@ -5,12 +5,13 @@ import { LuSearch } from "react-icons/lu";
 import { BLOG_NAVBAR_DATA } from "../../../utils/data";
 import LOGO from "../../../assets/6534601.jpg";
 import SideMenu from "../SideMenu";
-import  {UserContext } from "../../../context/UserContext";
+// import  {UserContext } from "../../../context/userProvider";
 import ProfileInfoCard from "../../Cards/ProfileInfoCard";
 import Login from "../../Auth/Login";
 import SignUp from "../../Auth/SignUp";
 import Modal from "../../Loaders/Modal";
 import SearchBarPopup from "../../../Pages/Blog/Components/SearchBarPopup";
+import { UserContext } from "../../../context/UserContext";
 
 const BlogNavbar = ({ activeMenu }) => {
   const {user , setOpenAuthForm} = useContext(UserContext);
