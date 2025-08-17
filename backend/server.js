@@ -17,7 +17,7 @@ const app = express();
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'),{}));
 
 
-// Middleware to handle CORS
+
 app.use(
   cors({
     origin: "*",

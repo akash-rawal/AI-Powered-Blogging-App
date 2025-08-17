@@ -16,6 +16,8 @@ const SignUp = ({ setCurrentPage }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [adminAccessToken, setAdminAccessToken] = useState("");
+  const [uploadedImageURL, setUploadedImageURL] = useState(null);
+
 
   const [error, setError] = useState(null);
 
@@ -45,8 +47,10 @@ const SignUp = ({ setCurrentPage }) => {
     try {
       if(profilePic){
         const imgUploadRes = await uploadImage(profilePic);
-        profileImageURL = imgUploadRes.imageUrl || "";
+        const url = imgUploadRes.imageUrl || "";
+        setUploadedImageURL(url); 
       }
+      console.log("profile file:", profilePic);
       const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
         name: fullName,
         email,
@@ -88,7 +92,8 @@ const SignUp = ({ setCurrentPage }) => {
           </p>
 
           <form onSubmit={handleSignUp}>
-            <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
+            <ProfilePhotoSelector image={uploadedImageURL || profilePic} setImage={setProfilePic} />
+
             <div className="grid grid-cols-1  md:grid-cols-2 gap-5">
               <Input
                 value={fullName}
