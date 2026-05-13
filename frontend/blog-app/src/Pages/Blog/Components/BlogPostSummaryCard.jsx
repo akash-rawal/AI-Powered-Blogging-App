@@ -12,15 +12,18 @@ const BlogPostSummaryCard = ({
   onClick,
 }) => {
   const navigate = useNavigate();
- return <div
-  className="bg-white shadow-lg shadow-gray-100 rounded-xl overflow-hidden cursor-pointer"
+  return <div
+  className="bg-white shadow-xl shadow-gray-100/60 rounded-2xl overflow-hidden cursor-pointer border border-gray-100 transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1"
   onClick={onClick}
 >
-  <img
-    src={coverImageUrl}
-    alt={title}
-    className="w-full h-64 object-cover"
-  />
+  <div className="overflow-hidden relative">
+    <img
+      src={coverImageUrl}
+      alt={title}
+      className="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-110"
+    />
+    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+  </div>
 
   <div className="p-4 md:p-6">
     <h2 className="text-base md:text-lg font-bold mb-2 line-clamp-3">

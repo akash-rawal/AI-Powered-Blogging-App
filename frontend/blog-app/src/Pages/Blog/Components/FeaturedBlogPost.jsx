@@ -12,18 +12,18 @@ const FeaturedBlogPost = ({
 }) => {
   return (
   <div
-    className="grid grid-cols-12 bg-white shadow-lg shadow-gray-100 rounded-xl overflow-hidden cursor-pointer"
+    className="grid grid-cols-1 md:grid-cols-12 bg-white shadow-xl shadow-gray-100/80 rounded-2xl overflow-hidden cursor-pointer border border-gray-100 hover:shadow-2xl transition-all duration-300 group"
     onClick={onClick}
   >
-    <div className="col-span-6">
+    <div className="md:col-span-6 overflow-hidden">
       <img
         src={coverImageUrl}
         alt={title}
-        className="w-full h-80 object-cover"
+        className="w-full h-64 md:h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
       />
     </div>
-    <div className="col-span-6">
-      <div className="p-6">
+    <div className="md:col-span-6 flex flex-col justify-center">
+      <div className="p-6 md:p-10">
         <h2 className="text-lg md:text-2xl font-bold mb-2 line-clamp-3">
           {title}
         </h2>

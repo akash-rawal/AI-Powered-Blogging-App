@@ -13,7 +13,6 @@ const aiRoutes = require("./routes/aiRoutes");
 
 
 const app = express();
-// app.use('/uploads', express.static('uploads'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'),{}));
 
 

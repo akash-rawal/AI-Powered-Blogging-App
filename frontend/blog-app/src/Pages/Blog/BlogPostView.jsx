@@ -19,6 +19,8 @@ import Drawer from "../../components/Drawer";
 import LikeCommentButton from "./Components/LikeCommentButton";
 import { UserContext } from "../../context/UserContext";
 
+import { STATIC_BLOGS } from "../../utils/staticData";
+
 const BlogPostView = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -38,6 +40,14 @@ const BlogPostView = () => {
   const [errorMsg, setErrorMsg] = useState("");
 
   const fetchPostDetailsBySlug = async () => {
+    // Check if slug is static first
+    const staticPost = STATIC_BLOGS.find(post => post.slug === slug);
+    if (staticPost) {
+      setBlogPostData(staticPost);
+      setComments([]); // Static blogs don't have interactive comments
+      return;
+    }
+
     try {
       const response = await axiosInstance.get(
         API_PATHS.POSTS.GET_BY_SLUG(slug)
