@@ -56,7 +56,7 @@ const SignUp = ({ setCurrentPage }) => {
         name: fullName,
         email,
         password,
-        profileImageURL,
+        profileImageUrl: profileImageURL,
         adminAccessToken,
       });
       const { token, role } = response.data;

@@ -16,6 +16,9 @@ const registerUser = async (req, res) => {
     if (userExists) {
       return res.status(400).json({ message: "user already exists" });
     }
+    if(!profileImageUrl){
+      return res.status(400).json({ message: "Please upload profile picture" });
+    }
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -55,13 +58,13 @@ const loginUser = async (req, res) => {
 
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(500).json({ message: "Invalid email or password" });
+      return res.status(500).json({ message: "Email not registered" });
     }
 
     // Compare password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(500).json({ message: "Invalid email or password" });
+      return res.status(500).json({ message: "Password incorrect" });
     }
 
     res.json({
