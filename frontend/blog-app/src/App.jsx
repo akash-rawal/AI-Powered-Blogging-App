@@ -7,6 +7,7 @@ import SearchPost from './Pages/Blog/SearchPost'
 import AdminLogin from './Pages/Admin/AdminLogin'
 import PrivateRoutes from './Routes/PrivateRoutes'
 import Dashboard from './Pages/Admin/Dashboard'
+import ErrorPage from './Pages/Error/ErrorPage'
 import BlogPosts from './Pages/Admin/BlogPosts'
 import BlogPostEditor from './Pages/Admin/BlogPostEditor'
 import Comments from './Pages/Admin/Comments'
@@ -34,6 +35,7 @@ const App = () => {
         <Route path='/:slug'  element={<BlogPostView/>}/>
         <Route path='/tag/:tagName'  element={<PostByTags/>}/>
         <Route path='/search'  element={<SearchPost/>}/>
+        <Route path='*'  element={<ErrorPage/>}/>
 
         <Route element={<PrivateRoutes  allowedRoles={["admin"]}/>}>
         <Route path='/admin/dashboard' element={<Dashboard/>} />

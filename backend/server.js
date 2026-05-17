@@ -42,6 +42,12 @@ app.use("/api/dashboard-summary", dashboardRoutes);
 app.use("/api/ai", aiRoutes);
 
 
+// routes not found
+app.use((req, res) => {
+  res.status(404).json({ message: "Page not found" });
+});
+
+
 
 
 

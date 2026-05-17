@@ -184,6 +184,7 @@ try {
   }
 } catch (error) {
   console.error("Error:", error);
+  navigate("/error/404", { replace: true });
 }
 
   };
