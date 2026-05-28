@@ -135,7 +135,7 @@ const getpostBySlug = async (req, res) => {
 const getPostsByTag = async (req, res) => {
   try {
     const posts = await BlogPost.find({
-      tags: req.params.tags,
+      tags: req.params.tag,
       isDraft: false,
     }).populate("author", "name profileImageUrl");
     res.json(posts);
