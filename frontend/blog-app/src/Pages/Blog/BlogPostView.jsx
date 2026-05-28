@@ -33,8 +33,6 @@ const BlogPostView = () => {
   const [replyText, setReplyText] = useState("");
   const [showReplyForm, setShowReplyForm] = useState(false);
 
-  const [view, setview] = useState(0);
-
   const [openSummarizeDrawer, setOpenSummarizeDrawer] = useState(false);
   const [summaryContent, setSummaryContent] = useState("");
 
@@ -113,11 +111,7 @@ const BlogPostView = () => {
     if (!postId) return;
 
     try {
-      const response = await axiosInstance.post(
-        API_PATHS.POSTS.INCREMENT_VIEW(postId),
-      );
-      setview(response.data);
-      console.log(response.data);
+      await axiosInstance.post(API_PATHS.POSTS.INCREMENT_VIEW(postId));
     } catch (error) {
       console.error("Error:", error);
     }
@@ -129,13 +123,10 @@ const BlogPostView = () => {
   };
   const handleAddReply = async () => {
     try {
-      const response = await axiosInstance.post(
-        API_PATHS.COMMENTS.ADD(blogPostData._id),
-        {
-          content: replyText,
-          parentComment: "",
-        },
-      );
+      await axiosInstance.post(API_PATHS.COMMENTS.ADD(blogPostData._id), {
+        content: replyText,
+        parentComment: "",
+      });
 
       toast.success("Reply added successfully!");
 
@@ -262,12 +253,6 @@ const BlogPostView = () => {
                         replies={comment.replies || []}
                         getAllComments={() =>
                           fetchCommentByPostId(blogPostData._id)
-                        }
-                        onDelete={(commentId) =>
-                          setOpenDeleteAlert({
-                            open: true,
-                            data: commentId || comment._id,
-                          })
                         }
                       />
                     ))}
