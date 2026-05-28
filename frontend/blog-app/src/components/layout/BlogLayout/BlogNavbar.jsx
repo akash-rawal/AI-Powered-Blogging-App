@@ -14,7 +14,7 @@ import SearchBarPopup from "../../../Pages/Blog/Components/SearchBarPopup";
 import { UserContext } from "../../../context/UserContext";
 
 const BlogNavbar = ({ activeMenu }) => {
-  const {user , setOpenAuthForm} = useContext(UserContext);
+  const { user, setOpenAuthForm } = useContext(UserContext);
   const [openSideMenu, setopenSideMenu] = useState(false);
   const [openSearchBar, setopenSearchBar] = useState(false);
 
@@ -24,7 +24,7 @@ const BlogNavbar = ({ activeMenu }) => {
         <div className="container mx-auto flex items-center justify-between gap-5">
           <div className="flex gap-5">
             <button
-              className="block lg:hidden text-black -mt-1"
+              className="flex lg:hidden text-black -mt-1 p-2 rounded-full hover:bg-gray-100/80 hover:shadow-md hover:shadow-gray-200/50 items-center justify-center cursor-pointer transition-all duration-300 hover:scale-[1.05]"
               onClick={() => {
                 setopenSideMenu(!openSideMenu);
               }}
@@ -67,29 +67,33 @@ const BlogNavbar = ({ activeMenu }) => {
               <LuSearch className="text-[22-px]" />
             </button>
 
-
-            {!user? <button
-              className="flex items-center justify-center gap-3 bg-linear-to-r from-sky-500 to-cyan-400 text-xs md:text-sm font-semibold text-white px-5 md:px-7 rounded-full hover:bg-black hover:text-white transition-colors cursor-pointer hover:shadow-cyan-200"
-              onClick={() => setOpenAuthForm(true)}
-            >
-              Login/SignUp
-            </button>: <div className="hidden md:block">
-                  <ProfileInfoCard/>
-            </div>}
-
-
+            {!user ? (
+              <button
+                className="flex items-center justify-center gap-3 bg-linear-to-r from-sky-500 to-cyan-400 text-xs md:text-sm font-semibold text-white py-1.5 md:py-1.5 hover:scale-[1.03] px-5 md:px-6 rounded-lg hover:bg-black hover:text-white  cursor-pointer hover:shadow-cyan-200 transition-all duration-300"
+                onClick={() => setOpenAuthForm(true)}
+              >
+                Login/SignUp
+              </button>
+            ) : (
+              <div className="hidden md:block">
+                <ProfileInfoCard />
+              </div>
+            )}
           </div>
 
           {openSideMenu && (
             <div className="fixed top-[61px] -ml-4 bg-white">
-              <SideMenu activeMenu={activeMenu} isBlogMenu  setopenSideMenu={setopenSideMenu}/>
+              <SideMenu
+                activeMenu={activeMenu}
+                isBlogMenu
+                setopenSideMenu={setopenSideMenu}
+              />
             </div>
           )}
         </div>
       </div>
-      <AuthModel/>
-      <SearchBarPopup isOpen={openSearchBar} setIsOpen={setopenSearchBar}/>
-        
+      <AuthModel />
+      <SearchBarPopup isOpen={openSearchBar} setIsOpen={setopenSearchBar} />
     </>
   );
 };
@@ -111,10 +115,11 @@ const AuthModel = () => {
       >
         <div className="">
           {currentPage === "login" && <Login setCurrentPage={setCurrentPage} />}
-          {currentPage === "signup" && <SignUp setCurrentPage={setCurrentPage} />}
+          {currentPage === "signup" && (
+            <SignUp setCurrentPage={setCurrentPage} />
+          )}
         </div>
       </Modal>
     </>
   );
 };
-

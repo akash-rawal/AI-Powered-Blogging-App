@@ -80,7 +80,7 @@ const handleClick = (post) => {
   const otherPosts = combinedBlogs.slice(1);
 
   return (
-    <BlogLayout>
+    <BlogLayout activeMenu="Home">
       {/* High-end Modern Hero Section */}
       <div className="relative overflow-hidden bg-slate-950 text-white rounded-[2.5rem] mb-16 px-8 py-24 md:px-16 md:py-32 flex flex-col items-center justify-center text-center shadow-2xl transition-all group">
         {/* Animated Ambient Gradients */}

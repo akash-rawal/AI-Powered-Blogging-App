@@ -16,9 +16,7 @@ const registerUser = async (req, res) => {
     if (userExists) {
       return res.status(400).json({ message: "user already exists" });
     }
-    if(!profileImageUrl){
-      return res.status(400).json({ message: "Please upload profile picture" });
-    }
+    
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);

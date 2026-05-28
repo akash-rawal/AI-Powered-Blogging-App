@@ -66,11 +66,11 @@ const SignUp = ({ setCurrentPage }) => {
         updateUser(response.data);
 
         if (role === "admin") {
-          setOpenAuthForm(false);
           navigate("/admin/dashboard");
+        } else {
+          navigate("/");
         }
       }
-      navigate("/");
 
       setOpenAuthForm(false);
     } catch (error) {
