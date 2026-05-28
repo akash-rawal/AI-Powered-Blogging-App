@@ -33,6 +33,8 @@ const BlogPostView = () => {
   const [replyText, setReplyText] = useState("");
   const [showReplyForm, setShowReplyForm] = useState(false);
 
+  const [view, setview] = useState(0);
+
   const [openSummarizeDrawer, setOpenSummarizeDrawer] = useState(false);
   const [summaryContent, setSummaryContent] = useState("");
 
@@ -41,7 +43,7 @@ const BlogPostView = () => {
 
   const fetchPostDetailsBySlug = async () => {
     // Check if slug is static first
-    const staticPost = STATIC_BLOGS.find(post => post.slug === slug);
+    const staticPost = STATIC_BLOGS.find((post) => post.slug === slug);
     if (staticPost) {
       setBlogPostData(staticPost);
       setComments([]); // Static blogs don't have interactive comments
@@ -50,7 +52,7 @@ const BlogPostView = () => {
 
     try {
       const response = await axiosInstance.get(
-        API_PATHS.POSTS.GET_BY_SLUG(slug)
+        API_PATHS.POSTS.GET_BY_SLUG(slug),
       );
 
       if (response.data) {
@@ -68,7 +70,7 @@ const BlogPostView = () => {
   const fetchCommentByPostId = async (postId) => {
     try {
       const response = await axiosInstance.get(
-        API_PATHS.COMMENTS.GET_ALL_BY_POST(postId)
+        API_PATHS.COMMENTS.GET_ALL_BY_POST(postId),
       );
 
       if (response.data) {
@@ -92,7 +94,7 @@ const BlogPostView = () => {
         API_PATHS.AI.GENERATE_POST_SUMMARY,
         {
           content: blogPostData.content || "",
-        }
+        },
       );
 
       if (response.data) {
@@ -112,8 +114,10 @@ const BlogPostView = () => {
 
     try {
       const response = await axiosInstance.post(
-        API_PATHS.POSTS.INCREMENT_VIEW(postId)
+        API_PATHS.POSTS.INCREMENT_VIEW(postId),
       );
+      setview(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -130,7 +134,7 @@ const BlogPostView = () => {
         {
           content: replyText,
           parentComment: "",
-        }
+        },
       );
 
       toast.success("Reply added successfully!");
@@ -269,12 +273,11 @@ const BlogPostView = () => {
                     ))}
                 </div>
                 <LikeCommentButton
-                postId={blogPostData._id || ""}
-                likes={blogPostData.likes || 0}
-                comments={comments?.length || 0}
-              />
+                  postId={blogPostData._id || ""}
+                  likes={blogPostData.likes || 0}
+                  comments={comments?.length || 0}
+                />
               </div>
-              
             </div>
 
             <div className="col-span-12 md:col-span-4">

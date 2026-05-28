@@ -168,8 +168,11 @@ const searchPosts = async (req, res) => {
 
 const incrementView = async (req, res) => {
   try {
-    await BlogPost.findByIdAndUpdate(req.params.id, { $inc: { views: 1 } });
-    res.json({ message: "view count incremented" });
+    const post = await BlogPost.findById(req.params.id);
+    if (!post) return res.status(404).json({ message: "post not found" });
+    post.views += 1;
+    await post.save();
+    res.json(post.views);
   } catch (err) {
     res
       .status(500)
