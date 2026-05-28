@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import SideMenu from "./SideMenu";
 
@@ -6,6 +6,17 @@ import LOGO from "../../assets/react.svg";
 
 const Navbar = ({ activeMenu }) => {
   const [openSideMenu, setOpenSideMenu] = useState(false);
+
+  useEffect(() => {
+    if (openSideMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [openSideMenu]);
   return (
     <div className="flex gap-5 bg-white border border-b border-gray-200/50 backdrop-blur-[2px] py-4 px-7 sticky top-0 z-30">
       <button
@@ -24,7 +35,7 @@ const Navbar = ({ activeMenu }) => {
       <img src={LOGO} alt="logo" className="h-[24px] md:h-[26px]" />
 
       {openSideMenu && (
-        <div className="fixed top-[61px] -ml-4 bg-white">
+        <div className="fixed top-[61px] left-0 bg-white z-20">
           <SideMenu activeMenu={activeMenu}   setOpenSideMenu={setOpenSideMenu} />
         </div>
       )}

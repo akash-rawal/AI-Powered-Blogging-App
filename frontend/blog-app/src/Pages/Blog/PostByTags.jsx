@@ -35,8 +35,10 @@ useEffect(() => {
 }, [tagName]);
 
 
+  const activeMenu = tagName === "React" ? "React JS" : tagName === "next.js" ? "Next JS" : "";
+
   return (
-  <BlogLayout>
+  <BlogLayout activeMenu={activeMenu}>
     <div>
       <div className="grid grid-cols-12 gap-5">
         <div className="col-span-12 md:col-span-9">

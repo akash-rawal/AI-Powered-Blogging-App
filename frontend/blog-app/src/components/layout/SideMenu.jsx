@@ -1,4 +1,3 @@
-
 import React, { useContext } from "react";
 import { BLOG_NAVBAR_DATA, SIDE_MENU_DATA } from "../../utils/data";
 import { LuLogOut } from "react-icons/lu";
@@ -7,30 +6,27 @@ import CharAvatar from "../Cards/CharAvatar";
 import { UserContext } from "../../context/UserContext";
 // import { UserContext } from "../../context/userProvider";
 
-const SideMenu = ({ activeMenu, isBlogMenu ,setOpenSideMenu}) => {
-  const{user ,setUser}  = useContext(UserContext);
-  
+const SideMenu = ({ activeMenu, isBlogMenu, setOpenSideMenu }) => {
+  const { user, setUser } = useContext(UserContext);
+
   const navigate = useNavigate();
   const handleClick = (route) => {
     if (route === "logout") {
       handleLogout();
       return;
     }
-    
 
-
-    setOpenSideMenu((prevState)=>!prevState)
+    setOpenSideMenu((prevState) => !prevState);
     navigate(route);
   };
   const handleLogout = () => {
     localStorage.clear();
     setUser(null);
-    setOpenSideMenu((prevState)=>!prevState)
+    setOpenSideMenu((prevState) => !prevState);
     navigate("/");
-    
   };
   return (
-    <div className="w-64 h-[calc(100vh-61px)] bg-white border-r border-t-gray-200/50 p-5 sticky top-[61px] z-20">
+    <div className="w-64 h-[calc(100vh-61px)] bg-white border-r border-t-gray-200/50 p-5 sticky top-[61px] z-20 overflow-y-auto custom-scrollbar">
       {user && (
         <div className="flex flex-col items-center justify-center gap-1 mt-3 mb-7">
           {user?.profileImageUrl ? (

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { LuSearch } from "react-icons/lu";
@@ -17,6 +17,17 @@ const BlogNavbar = ({ activeMenu }) => {
   const { user, setOpenAuthForm } = useContext(UserContext);
   const [openSideMenu, setopenSideMenu] = useState(false);
   const [openSearchBar, setopenSearchBar] = useState(false);
+
+  useEffect(() => {
+    if (openSideMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [openSideMenu]);
 
   return (
     <>
@@ -82,11 +93,11 @@ const BlogNavbar = ({ activeMenu }) => {
           </div>
 
           {openSideMenu && (
-            <div className="fixed top-[61px] -ml-4 bg-white">
+            <div className="fixed top-[61px] left-0 bg-white z-20">
               <SideMenu
                 activeMenu={activeMenu}
                 isBlogMenu
-                setopenSideMenu={setopenSideMenu}
+                setOpenSideMenu={setopenSideMenu}
               />
             </div>
           )}
