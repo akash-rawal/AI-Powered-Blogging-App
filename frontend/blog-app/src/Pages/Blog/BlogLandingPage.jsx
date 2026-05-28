@@ -147,7 +147,7 @@ const handleClick = (post) => {
           {otherPosts.length > 0 && (
             <div className="mt-12">
               <h3 className="text-xl font-extrabold text-slate-900 mb-8 flex items-center gap-3">
-                <span className="w-1 h-8 bg-indigo-500 rounded-full"></span>
+                <span className="w-1 h-8 bg-cyan-500 rounded-full"></span>
                 Lately Published
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
