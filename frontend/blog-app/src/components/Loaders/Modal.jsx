@@ -1,4 +1,5 @@
 import React from 'react';
+import { LuX } from 'react-icons/lu';
 
 const Modal = ({ children, isOpen, onClose, title, hideHeader }) => {
   if (!isOpen) return null;
@@ -17,24 +18,10 @@ const Modal = ({ children, isOpen, onClose, title, hideHeader }) => {
 
         <button
           type="button"
-          className="text-gray-400 bg-transparent hover:bg-sky-100 hover:text-gray-900 rounded-lg text-sm w-8 h8 flex justify-center items-center absolute top-3.5 right-3.5 cursor-pointer"
+          className="text-gray-700 bg-transparent hover:bg-sky-100 hover:text-gray-900 rounded-full text-sm w-8 h-8 flex justify-center items-center absolute top-3.5 right-3.5 cursor-pointer"
           onClick={onClose}
         >
-          <svg
-            className="w-3 h-3"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 14"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M1 1l6 6m0 0l6-6m-6 6l6 6m-6-6l-6 6"
-            />
-          </svg>
+          <LuX className="w-4 h-4" />
         </button>
 
         {/* Modal Body (Scrollable) */}
