@@ -192,7 +192,7 @@ const BlogPostView = () => {
               </div>
 
               <img
-                src={blogPostData.coverImageUrl || ""}
+                src={blogPostData.coverImageUrl || null}
                 alt={blogPostData.title}
                 className="w-full h-96 object-cover mb-6 rounded-lg"
               />
