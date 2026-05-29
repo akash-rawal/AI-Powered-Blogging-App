@@ -120,8 +120,8 @@ const ContactPage = () => {
             <div className="bg-white border border-slate-100 rounded-[2rem] p-8 md:p-12 shadow-xl shadow-slate-100/50">
               {isSubmitted ? (
                 <div className="text-center py-12 space-y-6">
-                  <div className="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto">
-                    
+                  <div className="w-16 h-16 bg-sky-50 text-sky-500 rounded-full flex items-center justify-center mx-auto">
+                    <LuMail className="w-8 h-8 text-sky-500" />
                   </div>
                   <div className="space-y-2">
                     <h3 className="text-2xl font-bold text-slate-900">Message Received!</h3>

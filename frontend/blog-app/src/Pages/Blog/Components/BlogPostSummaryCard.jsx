@@ -18,7 +18,7 @@ const BlogPostSummaryCard = ({
 >
   <div className="overflow-hidden relative">
     <img
-      src={coverImageUrl}
+      src={coverImageUrl || null}
       alt={title}
       className="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-110"
     />
@@ -50,7 +50,7 @@ const BlogPostSummaryCard = ({
 
   <div className="flex items-center">
     <img
-      src={authProfileImg}
+      src={authProfileImg || null}
       alt={authorName}
       className="w-8 h-8 rounded-full mr-2"
     />

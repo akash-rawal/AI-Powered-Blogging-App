@@ -16,7 +16,7 @@ const BlogPostSummaryCard = ({
      className="flex items-center  gap-4 bg-white p-3 mb-3 rounded-lg cursor-pointer group"
      onClick={onClick}
    >
-     <img src={imgUrl} alt={title} className="w-16 h-16 rounded-lg " />
+     <img src={imgUrl || null} alt={title} className="w-16 h-16 rounded-lg " />
 
      <div className="flex-1">
        <h3 className="text-[13px] md:text-[15px] text-black font-medium">
