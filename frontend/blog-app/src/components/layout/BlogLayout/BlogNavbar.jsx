@@ -18,7 +18,7 @@ const BlogNavbar = ({ activeMenu }) => {
   const [openSideMenu, setopenSideMenu] = useState(false);
   const [openSearchBar, setopenSearchBar] = useState(false);
   const navigate = useNavigate();
-  console.log(user)
+ 
 
   useEffect(() => {
     if (openSideMenu) {
@@ -53,7 +53,7 @@ const BlogNavbar = ({ activeMenu }) => {
             </Link>
           </div>
           <nav className="hidden md:flex items-center gap-10">
-            {BLOG_NAVBAR_DATA.map((item, index) => {
+            {BLOG_NAVBAR_DATA.map((item) => {
               if (item?.onlySideMenu) return;
               return (
                 <Link key={item.id} to={item.path}>
@@ -62,7 +62,7 @@ const BlogNavbar = ({ activeMenu }) => {
                     <span
                       className={`absolute inset-x-0 bottom-0 h-[2px] bg-sky-500 transition-all duration-300 origin-left 
                                             ${
-                                              index == 0
+                                              activeMenu === item.label
                                                 ? "scale-x-100"
                                                 : "scale-x-0"
                                             } group-hover:scale-x-100`}

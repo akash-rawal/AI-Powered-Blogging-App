@@ -3,8 +3,9 @@ import {
     LuGalleryVerticalEnd,
     LuMessageSquareQuote,
     LuLayoutTemplate,
-    LuTag,}
-    from "react-icons/lu";
+    LuInfo,
+    LuMail,
+} from "react-icons/lu";
 
 export const SIDE_MENU_DATA = [
     {
@@ -36,14 +37,14 @@ export const BLOG_NAVBAR_DATA = [
     },
     {
     id: "02",
-    label: "React JS",
-    icon: LuTag,
-    path: "/tag/React",
+    label: "About",
+    icon: LuInfo,
+    path: "/about",
     },
     {
     id: "03",
-    label: "Next JS",
-    icon: LuTag,
-    path: "/tag/next.js",
+    label: "Contact",
+    icon: LuMail,
+    path: "/contact",
     },
-]
+];

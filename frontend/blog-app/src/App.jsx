@@ -4,6 +4,8 @@ import BlogLandingPage from './Pages/Blog/BlogLandingPage'
 import BlogPostView from './Pages/Blog/BlogPostView'
 import PostByTags from './Pages/Blog/PostByTags'
 import SearchPost from './Pages/Blog/SearchPost'
+import AboutPage from './Pages/Blog/AboutPage'
+import ContactPage from './Pages/Blog/ContactPage'
 import AdminLogin from './Pages/Admin/AdminLogin'
 import PrivateRoutes from './Routes/PrivateRoutes'
 import Dashboard from './Pages/Admin/Dashboard'
@@ -32,6 +34,8 @@ const App = () => {
         />
       <Routes>
         <Route path='/'  element={<BlogLandingPage/>}/>
+        <Route path='/about'  element={<AboutPage/>}/>
+        <Route path='/contact'  element={<ContactPage/>}/>
         <Route path='/:slug'  element={<BlogPostView/>}/>
         <Route path='/tag/:tagName'  element={<PostByTags/>}/>
         <Route path='/search'  element={<SearchPost/>}/>
