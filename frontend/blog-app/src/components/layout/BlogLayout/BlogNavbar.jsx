@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LuSearch } from "react-icons/lu";
 import { BLOG_NAVBAR_DATA } from "../../../utils/data";
 import LOGO from "../../../assets/6534601.jpg";
@@ -17,6 +17,8 @@ const BlogNavbar = ({ activeMenu }) => {
   const { user, setOpenAuthForm } = useContext(UserContext);
   const [openSideMenu, setopenSideMenu] = useState(false);
   const [openSearchBar, setopenSearchBar] = useState(false);
+  const navigate = useNavigate();
+  console.log(user)
 
   useEffect(() => {
     if (openSideMenu) {
@@ -77,6 +79,9 @@ const BlogNavbar = ({ activeMenu }) => {
             >
               <LuSearch className="text-[22-px]" />
             </button>
+            
+            {user?.role=== "admin" && <button onClick={() => navigate("/admin/dashboard")} className="bg-linear-to-r from-sky-500 to-cyan-400 text-xs md:text-sm font-semibold text-white py-1.5 md:py-1.5 hover:scale-[1.03] px-5 md:px-6 rounded-lg hover:bg-black hover:text-white  cursor-pointer hover:shadow-cyan-200 transition-all duration-300">Admin Dashboard</button>}
+            
 
             {!user ? (
               <button
@@ -125,6 +130,7 @@ const AuthModel = () => {
         hideHeader
       >
         <div className="">
+          
           {currentPage === "login" && <Login setCurrentPage={setCurrentPage} />}
           {currentPage === "signup" && (
             <SignUp setCurrentPage={setCurrentPage} />

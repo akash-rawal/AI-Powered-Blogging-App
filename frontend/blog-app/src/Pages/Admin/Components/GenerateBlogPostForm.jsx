@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import Input from "../../../components/Inputs/Input";
 import axiosInstance from "../../../utils/axiosInstance";
 import { API_PATHS } from "../../../utils/apiPaths";
@@ -19,7 +19,7 @@ const GenerateBlogPostForm = ({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const navigate = useNavigate();
+
 
   const handleChange = (key, value) => {
     setFormData((prevData) => ({
