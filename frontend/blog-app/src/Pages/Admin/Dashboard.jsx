@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import DashboardLayout from "../../components/layout/DashboardLayout";
-import { useNavigate } from "react-router-dom";
+
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
-// import { UserContext } from "../../context/userProvider";
+
 import moment from "moment";
 import {
   LuChartLine,
@@ -19,7 +19,7 @@ import { UserContext } from "../../context/UserContext";
 
 const Dashboard = () => {
   const { user } = useContext(UserContext);
-  const navigate = useNavigate();
+
 
   const [dashboardData, setDashboardData] = useState(null);
   const [maxViews, setMaxViews] = useState(0);

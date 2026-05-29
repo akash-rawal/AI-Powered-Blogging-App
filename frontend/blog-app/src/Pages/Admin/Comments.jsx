@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import DashboardLayout from '../../components/layout/DashboardLayout'
-import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import CommentInfoCard from './CommentInfoCard';
 import axiosInstance from '../../utils/axiosInstance';
@@ -10,7 +9,7 @@ import  DeleteAlertContent  from "../../components/DeleteAlertContent";
 import Modal from "../../components/Loaders/Modal";
 
 const Comments = () => {
-  const navigate = useNavigate();
+  
   const [comments, setComments] = useState([]);
 
   const [openDeleteAlert, setOpenDeleteAlert] = useState({

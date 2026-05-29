@@ -35,7 +35,7 @@ const App = () => {
         <Route path='/:slug'  element={<BlogPostView/>}/>
         <Route path='/tag/:tagName'  element={<PostByTags/>}/>
         <Route path='/search'  element={<SearchPost/>}/>
-        <Route path='*'  element={<ErrorPage/>}/>
+        <Route path='/*'  element={<ErrorPage/>}/>
 
         <Route element={<PrivateRoutes  allowedRoles={["admin"]}/>}>
         <Route path='/admin/dashboard' element={<Dashboard/>} />
