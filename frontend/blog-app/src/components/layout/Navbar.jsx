@@ -3,10 +3,11 @@ import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import SideMenu from "./SideMenu";
 
 import LOGO from "../../assets/react.svg";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ activeMenu }) => {
   const [openSideMenu, setOpenSideMenu] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (openSideMenu) {
       document.body.style.overflow = "hidden";
@@ -18,7 +19,8 @@ const Navbar = ({ activeMenu }) => {
     };
   }, [openSideMenu]);
   return (
-    <div className="flex gap-5 bg-white border border-b border-gray-200/50 backdrop-blur-[2px] py-4 px-7 sticky top-0 z-30">
+    <div className="flex justify-between items-center gap-5 bg-white border border-b border-gray-200/50 backdrop-blur-[2px] py-4 px-7 sticky top-0 z-30">
+      
       <button
         className="block lg:hidden text-black -mt-1"
         onClick={() => {
@@ -32,13 +34,14 @@ const Navbar = ({ activeMenu }) => {
         )}
       </button>
 
-      <img src={LOGO} alt="logo" className="h-[24px] md:h-[26px]" />
+      <img src={LOGO} alt="logo" className="hidden md:block h-[26px]" />
 
       {openSideMenu && (
         <div className="fixed top-[61px] left-0 bg-white z-20">
           <SideMenu activeMenu={activeMenu}   setOpenSideMenu={setOpenSideMenu} />
         </div>
       )}
+      <button onClick={() => navigate("/")} className="bg-linear-to-r from-sky-500 to-cyan-400 text-sm md:text-md font-semibold text-white py-1.5 md:py-1.5 hover:scale-[1.03] px-5 md:px-6 rounded-lg hover:bg-black hover:text-white  cursor-pointer hover:shadow-cyan-200 transition-all duration-300">Home</button>
     </div>
   );
 };
