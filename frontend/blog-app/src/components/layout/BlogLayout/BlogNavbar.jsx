@@ -80,8 +80,10 @@ const BlogNavbar = ({ activeMenu }) => {
               <LuSearch className="text-[22-px]" />
             </button>
             
-            {user?.role=== "admin" && <button onClick={() => navigate("/admin/dashboard")} className="bg-linear-to-r from-sky-500 to-cyan-400 text-xs md:text-sm font-semibold text-white py-1.5 md:py-1.5 hover:scale-[1.03] px-5 md:px-6 rounded-lg hover:bg-black hover:text-white  cursor-pointer hover:shadow-cyan-200 transition-all duration-300">Admin Dashboard</button>}
-            
+            {user?.role=== "admin" && (
+              <button onClick={() => navigate("/admin/dashboard")} className="bg-linear-to-r from-sky-500 to-cyan-400 text-xs md:text-sm font-semibold text-white py-1.5 md:py-1.5 hover:scale-[1.03] px-5 md:px-6 rounded-lg hover:bg-black hover:text-white  cursor-pointer hover:shadow-cyan-200 transition-all duration-300">Admin Dashboard</button>
+             )}
+             {user?.role === "member" &&(<button onClick={()=>{navigate("/create")}}  className="bg-linear-to-r from-sky-500 to-cyan-400 text-xs md:text-sm font-semibold text-white py-1.5 md:py-1.5 hover:scale-[1.03] px-5 md:px-6 rounded-lg hover:bg-black hover:text-white  cursor-pointer hover:shadow-cyan-200 transition-all duration-300">Write</button>)}
 
             {!user ? (
               <button

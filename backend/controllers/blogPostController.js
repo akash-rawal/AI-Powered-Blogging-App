@@ -36,7 +36,7 @@ const updatePost = async (req, res) => {
     if (!post) return res.status(404).json({ message: "post not found" });
     if (
       post.author.toString() !== req.user._id.toString() &&
-      !req.user.isAdmin
+      req.user.role !== "admin"
     ) {
       return res
         .status(403)

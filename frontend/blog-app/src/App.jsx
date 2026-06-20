@@ -15,6 +15,7 @@ import BlogPostEditor from './Pages/Admin/BlogPostEditor'
 import Comments from './Pages/Admin/Comments'
 import  {Toaster} from "react-hot-toast"
 import UserProvider from './context/userProvider'
+import UserPosts from './Pages/Blog/UserPosts'
 // import UserProvider from './context/userProvider.jsx'
 // import UserProvider,{ UserContext }  from "./context/UserContext"
 
@@ -40,6 +41,7 @@ const App = () => {
         <Route path='/tag/:tagName'  element={<PostByTags/>}/>
         <Route path='/search'  element={<SearchPost/>}/>
         <Route path='/*'  element={<ErrorPage/>}/>
+        <Route path='/create' element={<UserPosts/>} />
 
         <Route element={<PrivateRoutes  allowedRoles={["admin"]}/>}>
         <Route path='/admin/dashboard' element={<Dashboard/>} />
@@ -47,6 +49,7 @@ const App = () => {
         <Route path='/admin/create' element={<BlogPostEditor/>} />
         <Route path='/admin/edit/:postSlug' element={<BlogPostEditor isEdit={true}/>} />
         <Route path='/admin/comments' element={<Comments/>} />
+        
         </Route>
 
         <Route path='/admin-login'  element={<AdminLogin/>}/>
