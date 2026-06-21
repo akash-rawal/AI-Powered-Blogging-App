@@ -17,6 +17,7 @@ const SignUp = ({ setCurrentPage }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [adminAccessToken, setAdminAccessToken] = useState("");
+  const [loading, setLoading] = useState(false);
   
 
 
@@ -45,6 +46,7 @@ const SignUp = ({ setCurrentPage }) => {
     }
 
     setError("");
+    setLoading(true);
     try {
       if(profilePic){
         const imgUploadRes = await uploadImage(profilePic);
@@ -79,6 +81,8 @@ const SignUp = ({ setCurrentPage }) => {
       } else {
         setError("Something went wrong. Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -129,7 +133,8 @@ const SignUp = ({ setCurrentPage }) => {
 
             {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
 
-            <button type="submit" className="btn-primary">
+            <button type="submit" className="btn-primary flex items-center justify-center gap-2" disabled={loading}>
+              {loading && <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>}
               SIGN UP
             </button>
 

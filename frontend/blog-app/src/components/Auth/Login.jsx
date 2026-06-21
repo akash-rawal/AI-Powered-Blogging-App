@@ -13,6 +13,7 @@ const Login = ({ setCurrentPage }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const { updateUser, setOpenAuthForm } = useContext(UserContext);
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ const Login = ({ setCurrentPage }) => {
    }
 
    setError("");
+   setLoading(true);
 
 
    try {
@@ -58,6 +60,8 @@ const Login = ({ setCurrentPage }) => {
      } else {
        setError("Something went wrong. Please try again.");
      }
+   } finally {
+     setLoading(false);
    }
   };
   return (
@@ -86,7 +90,8 @@ const Login = ({ setCurrentPage }) => {
        />
           {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
 
-          <button type="submit" className="btn-primary">
+          <button type="submit" className="btn-primary flex items-center justify-center gap-2" disabled={loading}>
+            {loading && <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>}
             LOGIN
           </button>
 
