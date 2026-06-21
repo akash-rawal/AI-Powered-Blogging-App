@@ -1,10 +1,10 @@
-const { promises } = require("fs");
+const { cloudinary } = require("../config/cloudinary");
 const BlogPost = require("../models/BlogPost");
 const mongoose = require("mongoose");
 
 const createPost = async (req, res) => {
   try {
-    const { title, content, coverImageUrl, tags, isDraft, generatedByAI } =
+    const { title, content, coverImageUrl, coverImagePublicId, tags, isDraft, generatedByAI } =
       req.body;
     const slug = title
       .toLowerCase()
@@ -16,6 +16,7 @@ const createPost = async (req, res) => {
       slug,
       content,
       coverImageUrl,
+      coverImagePublicId,
       tags,
       author: req.user._id,
       isDraft,
@@ -49,6 +50,19 @@ const updatePost = async (req, res) => {
         .replace(/ /g, "-")
         .replace(/[^\w-]+/g, "");
     }
+
+    if (
+      updatedData.coverImagePublicId !== undefined &&
+      post.coverImagePublicId &&
+      post.coverImagePublicId !== updatedData.coverImagePublicId
+    ) {
+      try {
+        await cloudinary.uploader.destroy(post.coverImagePublicId);
+      } catch (err) {
+        console.error("Failed to delete old image from Cloudinary:", err);
+      }
+    }
+
     const updatedPost = await BlogPost.findByIdAndUpdate(
       req.params.id,
       updatedData,
@@ -66,6 +80,14 @@ const deletePost = async (req, res) => {
   try {
     const post = await BlogPost.findById(req.params.id);
     if (!post) return res.status(404).json({ message: "post not found" });
+
+    if (post.coverImagePublicId) {
+      try {
+        await cloudinary.uploader.destroy(post.coverImagePublicId);
+      } catch (err) {
+        console.error("Failed to delete image from Cloudinary during post deletion:", err);
+      }
+    }
 
     await post.deleteOne();
     res.json({ message: "post deleted" });

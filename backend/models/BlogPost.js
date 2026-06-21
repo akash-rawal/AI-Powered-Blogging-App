@@ -6,6 +6,7 @@ const BlogPostSchema = new mongoose.Schema(
     slug: { type: String, required: true, unique: true },
     content: { type: String, required: true }, 
     coverImageUrl: { type: String, default: null },
+    coverImagePublicId: { type: String, default: null },
     tags: [{ type: String }],
     author: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     isDraft: { type: Boolean, default: false },

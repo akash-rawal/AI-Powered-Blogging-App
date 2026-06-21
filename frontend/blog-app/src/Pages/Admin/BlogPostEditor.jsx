@@ -38,6 +38,7 @@ const BlogPostEditor = ({ isEdit }) => {
     content: "",
     coverImageUrl: "",
     coverPreview: "",
+    coverImagePublicId: "",
     tags: "",
     isDraft: "",
     generatedByAI: false,
@@ -86,6 +87,7 @@ const BlogPostEditor = ({ isEdit }) => {
   
   const handlePublish = async (isDraft) => {
     let coverImageUrl = "";
+    let coverImagePublicId = postData.coverImagePublicId || "";
 
 if (!postData.title.trim()) {
   setError("Please enter a title.");
@@ -125,6 +127,7 @@ try {
   if (postData.coverImageUrl instanceof File) {
     const imgUploadRes = await uploadImage(postData.coverImageUrl);
     coverImageUrl = imgUploadRes.imageUrl || "";
+    coverImagePublicId = imgUploadRes.publicId || "";
   } else {
     coverImageUrl = postData.coverPreview;
   }
@@ -133,6 +136,7 @@ try {
     title: postData.title,
     content: postData.content,
     coverImageUrl,
+    coverImagePublicId,
     tags: postData.tags,
     isDraft: isDraft ? true : false,
     generatedByAI: true,
@@ -177,6 +181,7 @@ try {
       title: data.title,
       content: data.content,
       coverPreview: data.coverImageUrl,
+      coverImagePublicId: data.coverImagePublicId || "",
       tags: data.tags,
       isDraft: data.isDraft,
       generatedByAI: data.generatedByAI,
