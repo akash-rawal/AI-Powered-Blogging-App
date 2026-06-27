@@ -13,8 +13,9 @@ const generateAIContent = async (prompt) => {
   try {
     const response = await groq.chat.completions.create({
       messages: [{ role: "user", content: prompt }],
-      model: "llama-3.1-8b-instant",
+      model: "qwen/qwen3-32b",
     });
+   
     return response.choices[0]?.message?.content || "";
   } catch (error) {
     console.error("Groq API failed, falling back to Gemini:", error.message);
